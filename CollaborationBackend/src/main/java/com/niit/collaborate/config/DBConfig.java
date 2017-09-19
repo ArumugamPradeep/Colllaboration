@@ -43,8 +43,8 @@ public class DBConfig {
 			
 			driverManagerDataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 			driverManagerDataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-			driverManagerDataSource.setUsername("system");
-			driverManagerDataSource.setPassword("11");
+			driverManagerDataSource.setUsername("HR");
+			driverManagerDataSource.setPassword("HR");
 			
 			System.out.println("Data Souce Created");
 			
@@ -108,7 +108,7 @@ public class DBConfig {
 		return new BlogDaoImpl(sessionFactory);
 		}
 		
-		@Autowired
+	/*	@Autowired
 		@Bean
 		public ForumDaoImpl getForumDAO(SessionFactory sessionFactory)
 		{
@@ -146,5 +146,5 @@ public class DBConfig {
 			//sessionFactory used for userDaoImpl class
 		return new UserFormDaoImpl(sessionFactory);
 		}
-	
+*/	
 }
