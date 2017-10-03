@@ -1,7 +1,6 @@
 package com.niit.collaborate.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -32,12 +31,12 @@ public class BlogDaoTestCase {
 	public void createBlogTest() {
 		Blog blog = new Blog();
 
-		blog.setBlogId(101);
-		blog.setBlogname("Java");
-		blog.setBlogContent("OOL");
-		blog.setUserId("ru@gmail.com");
+		blog.setBlogId(2013);
+		blog.setBlogname("Java Ring");
+		blog.setBlogContent("Smart Technology");
+		blog.setUserId("Tannu@gmail.com");
 		blog.setCreateDate(new java.util.Date());
-		blog.setStatus("NA");
+		blog.setStatus("A");
 		blog.setLikes(0);
 
 		assertTrue("This will succeed.", blogDao.createBlog(blog));
@@ -65,28 +64,23 @@ public class BlogDaoTestCase {
 	@Ignore
 	@Test
 	public void getBlogTest() {
-		blog = new Blog();
-		blog = blogDao.getBlog(100);
 
-		assertEquals("This will succeed.", blogDao.getBlog(100));
-		// assertEquals("Successful","Rest",blog.getBlogname());
+		assertNotNull("Problem getting blog", blogDao.getBlog(204));
 	}
 
-	 @Ignore
 	@Test
 	public void approveBlogTest() {
 		Blog blog = new Blog();
 
-		blog = blogDao.getBlog(102);
-
-		blog.setBlogname("Rest");
-		blog.setBlogContent("Rest is stand for Representational State Transfer");
-		blog.setUserId("srenu@gmail.com");
+		blog.setBlogId(2013);
+		blog.setBlogname("Java Ring");
+		blog.setBlogContent("Smart Technology");
+		blog.setUserId("Tannu@gmail.com");
 		blog.setCreateDate(new java.util.Date());
-		blog.setStatus("NA");
+		blog.setStatus("A");
 		blog.setLikes(0);
 
-		assertTrue("This will succeed.", blogDao.approveBlog(blog));
+		assertTrue("This will succeed.", blogDao.createBlog(blog));
 
 	}
 
@@ -107,8 +101,6 @@ public class BlogDaoTestCase {
 	}
 
 	/*
-	 * @Test public void test() { 
-	 * fail("Not yet implemented");
-	 *  }
+	 * @Test public void test() { fail("Not yet implemented"); }
 	 */
 }

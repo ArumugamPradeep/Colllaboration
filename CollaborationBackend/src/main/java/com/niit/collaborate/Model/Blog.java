@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="BlogTable")
 
-public class Blog implements Serializable{
-                
+public class Blog implements Serializable {
+     
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private int blogId;
@@ -63,5 +63,5 @@ public class Blog implements Serializable{
 		this.createDate = createDate;
 	}
 	
-
+	
 }

@@ -13,7 +13,6 @@ import com.niit.collaborate.Dao.JobsDao;
 import com.niit.collaborate.Model.Jobs;
 
 @Repository("jobsDao")
-
 public class JobsDaoImpl implements JobsDao {
 
 	@Autowired
@@ -24,7 +23,6 @@ public class JobsDaoImpl implements JobsDao {
 	}
 
 	@Transactional
-	@Override
 	public boolean createJob(Jobs job) {
 		try {
 			sessionFactory.getCurrentSession().save(job);
@@ -37,13 +35,11 @@ public class JobsDaoImpl implements JobsDao {
 	}
 
 	@Transactional
-	@Override
 	public Jobs getJob(int jobId) {
 		return (Jobs) sessionFactory.getCurrentSession().get(Jobs.class, jobId);
 	}
 
 	@Transactional
-	@Override
 	public List<Jobs> getJobs() {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from JobTable where status='A'");
@@ -54,7 +50,6 @@ public class JobsDaoImpl implements JobsDao {
 	}
 
 	@Transactional
-	@Override
 	public boolean editJob(int jobId) {
 		try {
 
@@ -72,22 +67,19 @@ public class JobsDaoImpl implements JobsDao {
 	}
 
 	@Transactional
-	@Override
 	public boolean deleteJob(int jobId) {
-		try {  
+		try {
 			Session session = sessionFactory.openSession();
-			
-	        Jobs job = (Jobs)session.get(Jobs.class, jobId);
-	        session.delete(job);
-	        session.flush();
-	        session.close();
-	        return true;
-	      } catch(Exception e) {
-				System.out.println("Exception Arised:"+e); 
-				return false;
-			}
+
+			Jobs job = (Jobs) session.get(Jobs.class, jobId);
+			session.delete(job);
+			session.flush();
+			session.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println("Exception Arised:" + e);
+			return false;
+		}
 	}
 
 }
-
-

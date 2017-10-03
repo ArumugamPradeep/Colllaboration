@@ -19,7 +19,7 @@ public class UserForm implements Serializable {
 	private int Id;
 	private String firstname;
 	private String lastname;
-	private String passwword;
+	private String password;
 	private String emailId;
 	private String role;
 	private String status;
@@ -49,12 +49,12 @@ public class UserForm implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public String getPasswword() {
-		return passwword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswword(String passwword) {
-		this.passwword = passwword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getEmailId() {

@@ -24,7 +24,6 @@ public class FriendDaoImpl implements FriendDao {
 	}
 
 	@Transactional
-	@Override
 	public boolean createFriend(Friend friend) {
 		try {
 			sessionFactory.getCurrentSession().save(friend);
@@ -36,14 +35,13 @@ public class FriendDaoImpl implements FriendDao {
 	}
 
 	@Transactional
-	@Override
 	public Friend getFriend(int friendId) {
 		return (Friend) sessionFactory.getCurrentSession().get(Friend.class, friendId);
 	}
 
 	@Transactional
-	@Override
 	public List<Friend> getFriends() {
+
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from FriendTable where status='A'");
 		List<Friend> listFriend = query.list();
@@ -53,7 +51,6 @@ public class FriendDaoImpl implements FriendDao {
 	}
 
 	@Transactional
-	@Override
 	public boolean approveFriend(Friend friend) {
 		try {
 			friend.setStatus("A");
@@ -68,7 +65,6 @@ public class FriendDaoImpl implements FriendDao {
 	}
 
 	@Transactional
-	@Override
 	public boolean editFriend(int friendId) {
 		try {
 
@@ -86,7 +82,6 @@ public class FriendDaoImpl implements FriendDao {
 	}
 
 	@Transactional
-	@Override
 	public boolean deleteFriend(int friendId) {
 		try {
 			Session session = sessionFactory.openSession();
