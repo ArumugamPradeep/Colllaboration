@@ -43,7 +43,7 @@ public class BlogDaoTestCase {
 
 	}
 
-	@Ignore
+	
 	@Test
 	public void editBlogTest() {
 
@@ -84,7 +84,7 @@ public class BlogDaoTestCase {
 
 	}
 
-	@Ignore
+
 	@Test
 	public void getAllapproveBlogListTest() {
 

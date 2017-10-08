@@ -14,18 +14,24 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.collaborate.Dao.BlogDao;
+import com.niit.collaborate.Dao.ChatDao;
+import com.niit.collaborate.Dao.ForumDao;
+import com.niit.collaborate.Dao.FriendDao;
+import com.niit.collaborate.Dao.JobsDao;
+import com.niit.collaborate.Dao.UserDao;
 import com.niit.collaborate.DaoImpl.BlogDaoImpl;
 import com.niit.collaborate.DaoImpl.ChatDaoImpl;
 import com.niit.collaborate.DaoImpl.ForumDaoImpl;
 import com.niit.collaborate.DaoImpl.FriendDaoImpl;
 import com.niit.collaborate.DaoImpl.JobsDaoImpl;
-import com.niit.collaborate.DaoImpl.UserFormDaoImpl;
+import com.niit.collaborate.DaoImpl.UserDaoImpl;
 import com.niit.collaborate.Model.Blog;
 import com.niit.collaborate.Model.Chat;
 import com.niit.collaborate.Model.Forum;
 import com.niit.collaborate.Model.Friend;
 import com.niit.collaborate.Model.Jobs;
-import com.niit.collaborate.Model.UserForm;
+import com.niit.collaborate.Model.User;
 
 @Configuration
 @ComponentScan("com.niit.collaborate")
@@ -78,10 +84,9 @@ public class DBConfig {
 			localSessionFactoryBuilder.addProperties(getHibernateProperties());
 			localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
 			localSessionFactoryBuilder.addAnnotatedClass(Forum.class);
-			localSessionFactoryBuilder.addAnnotatedClass(UserForm.class);
+			localSessionFactoryBuilder.addAnnotatedClass(User.class);
 			localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
 			localSessionFactoryBuilder.addAnnotatedClass(Chat.class); 
-			
 			localSessionFactoryBuilder.addAnnotatedClass(Friend.class);
 			System.out.println("SessionFactory Bean created");
 			return localSessionFactoryBuilder.buildSessionFactory();
@@ -108,16 +113,16 @@ public class DBConfig {
 		return new BlogDaoImpl(sessionFactory);
 		}
 		
-	/*	@Autowired
+		@Autowired
 		@Bean
-		public ForumDaoImpl getForumDAO(SessionFactory sessionFactory)
+		public ForumDao getForumDAO(SessionFactory sessionFactory)
 		{
 		return new ForumDaoImpl(sessionFactory);
 		}
 		
 		@Autowired
 		@Bean
-		public FriendDaoImpl getFriendDAO(SessionFactory sessionFactory)
+		public FriendDao getFriendDAO(SessionFactory sessionFactory)
 		{
 		return new FriendDaoImpl(sessionFactory);
 		}
@@ -125,14 +130,14 @@ public class DBConfig {
 		
 		@Autowired
 		@Bean
-		public ChatDaoImpl getChatDAO(SessionFactory sessionFactory)
+		public ChatDao getChatDAO(SessionFactory sessionFactory)
 		{
 		return new ChatDaoImpl(sessionFactory);
 		}
 		
 		@Autowired
 		@Bean
-		public JobsDaoImpl getJobsDAO(SessionFactory sessionFactory)
+		public JobsDao getJobsDAO(SessionFactory sessionFactory)
 		{
 		return new JobsDaoImpl(sessionFactory);
 		}
@@ -141,10 +146,10 @@ public class DBConfig {
 		
 		@Autowired
 		@Bean
-		public UserFormDaoImpl getUserFormDAO(SessionFactory sessionFactory)
+		public UserDao getUserDAO(SessionFactory sessionFactory)
 		{
 			//sessionFactory used for userDaoImpl class
-		return new UserFormDaoImpl(sessionFactory);
+		return new UserDaoImpl(sessionFactory);
 		}
-*/	
+
 }

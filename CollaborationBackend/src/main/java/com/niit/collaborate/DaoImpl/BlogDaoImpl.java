@@ -41,7 +41,7 @@ public class BlogDaoImpl implements BlogDao{
 		
 	}
 
-	@Transactional
+//	@Transactional
 	 
 	public Blog getBlog(int blogId) {
 		
@@ -87,7 +87,7 @@ public class BlogDaoImpl implements BlogDao{
 			
 		}*/
     
-	@Transactional
+//	@Transactional
 
 	public List<Blog> getBlogs() {
 		

@@ -48,7 +48,7 @@ public class ChatDaoTestCase {
 
 	}
 
-	@Ignore
+	
 	@Test
 	public void getChatTest() {
 		chat = new Chat();
