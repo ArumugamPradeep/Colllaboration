@@ -7,7 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CollaborationMiddleware Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
 	<dependencies>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -24,7 +26,11 @@
 			<groupId>com.niit.collaborate</groupId>
 			<artifactId>CollaborationBackend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+
 		</dependency>
+
+		
+
 
 	</dependencies>
 
@@ -42,7 +48,6 @@
 
 			</plugin>
 		</plugins>
-
 
 		<finalName>CollaborationMiddleware</finalName>
 	</build>

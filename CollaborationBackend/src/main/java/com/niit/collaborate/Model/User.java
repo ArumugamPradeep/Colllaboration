@@ -1,116 +1,48 @@
 package com.niit.collaborate.Model;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
-
-@Component
 @Entity
-@Table(name = "AdminTable")
+@Table(name = "userframe")
 
-public class User implements Serializable {
+public class User {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	private int userId;
-	private String firstname;
-	private String surname;
-	private String phone;
-	private String emailId;
-	private String confmemail;
-	private String passwword;
-	private String confpassword;
-	private LocalDate birthDate;
-	private char gender;
+	private String username;
+
+	private String password;
+
 	private String role;
-	private String status;
-	private Boolean isOnline;
 
-	public int getUserId() {
-		return userId;
+	private String firstname;
+
+	private String lastname;
+
+	@Column(unique = true, nullable = false)
+	private String email;
+
+	private String phonenumber;
+
+	@Column(name = "on_line")
+	private boolean online;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public String getConfmemail() {
-		return confmemail;
-	}
-
-	public void setConfmemail(String confmemail) {
-		this.confmemail = confmemail;
-	}
-
-	public String getPasswword() {
-		return passwword;
-	}
-
-	public void setPasswword(String passwword) {
-		this.passwword = passwword;
-	}
-
-	public String getConfpassword() {
-		return confpassword;
-	}
-
-	public void setConfpassword(String confpassword) {
-		this.confpassword = confpassword;
-	}
-
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	public char getGender() {
-		return gender;
-	}
-
-	public void setGender(char gender) {
-		this.gender = gender;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getRole() {
@@ -121,20 +53,44 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public Boolean getIsOnline() {
-		return isOnline;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setIsOnline(Boolean isOnline) {
-		this.isOnline = isOnline;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public boolean isOnline() {
+		return online;
+	}
+
+	public void setOnline(boolean online) {
+		this.online = online;
 	}
 
 }

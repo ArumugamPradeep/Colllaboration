@@ -1,6 +1,6 @@
 package com.niit.collaborate.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -14,91 +14,70 @@ import com.niit.collaborate.Model.Blog;
 
 public class BlogDaoTestCase {
 
-	private static BlogDao blogDao;
-	private Blog blog;
-
+	static BlogDao blogDAO;
+	
 	@BeforeClass
-	public static void initialize() {
+	public static void initialize()
+	{
 		AnnotationConfigApplicationContext annotationConfigAppContext = new AnnotationConfigApplicationContext();
 		annotationConfigAppContext.scan("com.niit.collaborate");
 		annotationConfigAppContext.refresh();
-
-		blogDao = (BlogDao) annotationConfigAppContext.getBean("blogDao");
-
+		
+		blogDAO = (BlogDao)annotationConfigAppContext.getBean("blogDAO");
 	}
-
-	@Test
-	public void createBlogTest() {
-		Blog blog = new Blog();
-
-		blog.setBlogId(2013);
-		blog.setBlogname("Java Ring");
-		blog.setBlogContent("Smart Technology");
-		blog.setUserId("Tannu@gmail.com");
-		blog.setCreateDate(new java.util.Date());
-		blog.setStatus("A");
-		blog.setLikes(0);
-
-		assertTrue("This will succeed.", blogDao.createBlog(blog));
-
-	}
-
 	
+	@Ignore
 	@Test
-	public void editBlogTest() {
-
-		blog = new Blog();
-		blog = blogDao.getBlog(99);
-
-		blog.setBlogContent("It is stand for Representational State Transfer");
-		blog.setUserId("srenu@gmail.com");
+	public void createBlogTest()
+	{
+		Blog blog = new Blog();
+		
+		blog.setBlogId(1001);
+		blog.setBlogName("selenium");
+		blog.setBlogContent("selenium is a testing tool");
+		blog.setUserid("pradeep@gmail.com");
 		blog.setCreateDate(new java.util.Date());
 		blog.setStatus("NA");
 		blog.setLikes(0);
-
-		assertTrue("This will succeed", blogDao.editBlog(99));
-		// assertEquals("Successful","Rest",blog.getBlogname());
-
+		
+		assertTrue("Problem in Blog creation",blogDAO.createBlog(blog));
+		
+		
 	}
 
 	@Ignore
-	@Test
-	public void getBlogTest() {
-
-		assertNotNull("Problem getting blog", blogDao.getBlog(204));
-	}
-
 	@Test
 	public void approveBlogTest() {
+		
 		Blog blog = new Blog();
-
-		blog.setBlogId(2013);
-		blog.setBlogname("Java Ring");
-		blog.setBlogContent("Smart Technology");
-		blog.setUserId("Tannu@gmail.com");
+		
+		blog.setBlogId(1001);
+		blog.setBlogName("selenium");
+		blog.setBlogContent("selenium is a testing tool");
+		blog.setUserid("pradeep@gmail.com");
 		blog.setCreateDate(new java.util.Date());
-		blog.setStatus("A");
+		blog.setStatus("NA");
 		blog.setLikes(0);
-
-		assertTrue("This will succeed.", blogDao.createBlog(blog));
-
+		
+		assertTrue("Problem in Blog creation",blogDAO.approveBlog(blog));
+		
 	}
-
-
-	@Test
-	public void getAllapproveBlogListTest() {
-
-		List<Blog> listBlog = blogDao.getBlogs();
-		assertTrue("No Approved Blogs", listBlog.size() > 0);
-	}
-
 	@Ignore
 	@Test
-	public void DeleteBlogTest() {
-
-		assertTrue("Problem in Deleting", blogDao.deleteBlog(93));
-
+	public void getAllApprovedBlogTest() 
+	{
+		
+		List<Blog> listBlog=blogDAO.getBlogs();
+		assertTrue("No Approved Blogs", listBlog.size()>0);
 	}
+	
+	@Test
+	public void deleteBlogTest() {
+		assertTrue("problem in deleting", blogDAO.deleteBlog(1001));
+		
+	}
+	
+	
 
 	/*
 	 * @Test public void test() { fail("Not yet implemented"); }

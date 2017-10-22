@@ -1,64 +1,52 @@
 package com.niit.collaborate.Model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="ForumTable")
+@Table
 
-public class Forum implements Serializable{
+public class Forum {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	private int forumId, userId;
-	private String forumname, forumcontent, status;
-	
+	private int ForumId;
+	private String ForumName;
+	private String ForumContent;
+	private int UserId;
 	private Date createDate;
+	private String Status;
 
 	public int getForumId() {
-		return forumId;
+		return ForumId;
 	}
 
 	public void setForumId(int forumId) {
-		this.forumId = forumId;
+		ForumId = forumId;
+	}
+
+	public String getForumName() {
+		return ForumName;
+	}
+
+	public void setForumName(String forumName) {
+		ForumName = forumName;
+	}
+
+	public String getForumContent() {
+		return ForumContent;
+	}
+
+	public void setForumContent(String forumContent) {
+		ForumContent = forumContent;
 	}
 
 	public int getUserId() {
-		return userId;
+		return UserId;
 	}
 
 	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public String getForumname() {
-		return forumname;
-	}
-
-	public void setForumname(String forumname) {
-		this.forumname = forumname;
-	}
-
-	public String getForumcontent() {
-		return forumcontent;
-	}
-
-	public void setForumcontent(String forumcontent) {
-		this.forumcontent = forumcontent;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
+		UserId = userId;
 	}
 
 	public Date getCreateDate() {
@@ -69,5 +57,12 @@ public class Forum implements Serializable{
 		this.createDate = createDate;
 	}
 
-	
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
 }

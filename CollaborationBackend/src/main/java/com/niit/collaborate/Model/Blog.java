@@ -1,70 +1,74 @@
 package com.niit.collaborate.Model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import org.springframework.stereotype.Component;
-
-@Component
 @Entity
-@Table(name="BlogTable")
+@Table
 
-public class Blog implements Serializable {
-     
-	@GeneratedValue(strategy = GenerationType.AUTO)
+public class Blog {
+
 	@Id
 	private int blogId;
-	private String blogname, blogContent, status, userId;
+	private String blogName, blogContent, status, Userid;
 	private int likes;
-	private Date createDate;
+    private Date createDate;
+
 	public int getBlogId() {
 		return blogId;
 	}
+
 	public void setBlogId(int blogId) {
 		this.blogId = blogId;
 	}
-	public String getBlogname() {
-		return blogname;
+
+	public String getBlogName() {
+		return blogName;
 	}
-	public void setBlogname(String blogname) {
-		this.blogname = blogname;
+
+	public void setBlogName(String blogName) {
+		this.blogName = blogName;
 	}
+
 	public String getBlogContent() {
 		return blogContent;
 	}
+
 	public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getUserId() {
-		return userId;
+
+	public String getUserid() {
+		return Userid;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setUserid(String userid) {
+		Userid = userid;
 	}
+
 	public int getLikes() {
 		return likes;
 	}
+
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
+
 	public Date getCreateDate() {
 		return createDate;
 	}
+
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	
-	
+
 }
