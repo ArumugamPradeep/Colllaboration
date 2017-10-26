@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "userframe")
+@Table(name="userframe")
 
 public class User {
 
