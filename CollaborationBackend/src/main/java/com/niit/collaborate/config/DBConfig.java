@@ -18,7 +18,7 @@ import com.niit.collaborate.Model.User;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages={"com.niit.collaborate"})
+@ComponentScan("com.niit.collaborate.Model")
 public class DBConfig {
 
 	
