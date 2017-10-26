@@ -6,17 +6,12 @@ import com.niit.collaborate.Model.Job;
 
 public interface JobDAO {
 
-public boolean createJob(Job job);
-	
-	public boolean approveJob(Job job);
-	
-	public boolean deleteJob(int jobid);
-	
-	public boolean editJob(int jobid);
-	
-	public Job getJob(int jobid);
-	
-	public List<Job> getJobs();
+	public boolean createJob(Job job);
 
+	void addJob(Job job);
+
+	List<Job> getAllJobs();
+
+	Job getJob(int jobId);
 
 }

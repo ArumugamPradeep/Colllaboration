@@ -13,6 +13,14 @@ app.config(function($routeProvider) {
 		controller : 'UserController'
 	})
 
+	.when('/addjob', {
+		templateUrl : 'views/jobform.html',
+		controller : 'JobController'
+	}).when('/getalljobs', {
+		templateUrl : 'views/jobslist.html',
+		controller : 'JobController'
+	})
+
 	.otherwise({
 		templateUrl : 'views/home.html'
 	})
@@ -30,7 +38,8 @@ app.run(function($rootScope, $cookieStore, UserService, $location) {
 			delete $rootScope.currentUser;
 			$cookieStore.remove('userDetails')
 			$location.path('/login')
-		}, function(response) {
+		},
+		function(response) {
 			console.log(response.status)
 			if (response.status == 401) {
 				console.log('error in logout')

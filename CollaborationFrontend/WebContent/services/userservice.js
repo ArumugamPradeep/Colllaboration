@@ -3,7 +3,7 @@
  **/
 app.factory('UserService', function($http) {
 	var userService = {}
-	var BASE_URL = "http://localhost:8089/CollaborationMiddleware"
+	var BASE_URL = "http://localhost:8090/CollaborationMiddleware"
 
 	userService.registerUser = function(user) {
 

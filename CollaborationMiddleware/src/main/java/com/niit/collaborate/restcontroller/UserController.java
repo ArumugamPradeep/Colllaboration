@@ -45,20 +45,12 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST) // each user
-																	// unique
-																	// session
-																	// object
-																	// will get
-																	// created
+	@RequestMapping(value = "/login", method = RequestMethod.POST) 
 	public ResponseEntity<?> login(@RequestBody User user, HttpSession session) {
 		User validUser = userService.login(user);
 		if (validUser == null) {// invalid username/password
 			Error error = new Error(4, "Invalid Username/Password...");
-			return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED); // error
-																				// end
-																				// callback
-																				// func
+			return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED); 
 			// resposne.data=error
 			// response.status=401
 		}
