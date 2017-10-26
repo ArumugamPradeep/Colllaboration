@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.niit.collaborate.Model.Error;
 import com.niit.collaborate.Model.Job;
 import com.niit.collaborate.Model.User;
+import com.niit.collaborate.service.JobService;
 import com.niit.collaborate.service.UserService;
 
 @Controller

@@ -1,11 +1,10 @@
-package com.niit.collaborate.Dao;
+package com.niit.collaborate.service;
 
 import java.util.List;
 
 import com.niit.collaborate.Model.Job;
 
-public interface JobDAO {
-
+public interface JobService {
 
 	void addJob(Job job);
 

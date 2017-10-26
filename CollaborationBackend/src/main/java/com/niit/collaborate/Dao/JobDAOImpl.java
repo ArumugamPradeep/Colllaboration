@@ -13,32 +13,32 @@ import org.springframework.stereotype.Repository;
 import com.niit.collaborate.Model.Job;
 
 @Repository("jobDAO")
+@Transactional
 
 public class JobDAOImpl implements JobDAO {
 
-	@Override
-	public boolean createJob(Job job) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	@Override
 	public void addJob(Job job) {
-		// TODO Auto-generated method stub
-		
+		Session session = sessionFactory.getCurrentSession();
+		session.save(job);
+
 	}
 
 	@Override
 	public List<Job> getAllJobs() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Job"); // select * from job
+		return query.list(); // list of all objects
 	}
 
 	@Override
 	public Job getJob(int jobId) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		Job job = (Job) session.get(Job.class, jobId);
+		return job;
 	}
 
-	
 }
